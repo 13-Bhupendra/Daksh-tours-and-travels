@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 function Index() {
     return (<>
       <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-deep">
-        <video className="absolute inset-0 h-full w-full object-cover" src={media.heroVideo} poster={media.hero} autoPlay muted loop playsInline preload="metadata"/>
+        <video className="absolute inset-0 h-full w-full object-cover" src={media.heroVideo} autoPlay muted loop playsInline preload="auto"/>
         <div className="overlay-hero absolute inset-0"/>
         <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 md:px-8">
           <p className="eyebrow animate-rise">Nashik · Maharashtra</p>

@@ -1,6 +1,6 @@
 // All image and video sources in one place — swap files here to replace media.
 import hero from "@/assets/hero.jpg";
-import heroVideo from "@/assets/hero-video.mp4.asset.json";
+import heroVideo from "@/assets/hero-video.mp4";
 import airport from "@/assets/airport.jpg";
 import nashik from "@/assets/dest-nashik.jpg";
 import shirdi from "@/assets/dest-shirdi.jpg";
@@ -14,7 +14,7 @@ import swift from "@/assets/car-swift.jpg";
 import bus from "@/assets/car-bus.jpg";
 export const media = {
     hero,
-    heroVideo: heroVideo.url,
+    heroVideo,
     airport,
     nashik,
     shirdi,
