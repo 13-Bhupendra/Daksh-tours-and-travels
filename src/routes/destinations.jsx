@@ -11,7 +11,7 @@ export const Route = createFileRoute("/destinations")({
             { property: "og:description", content: "Travel from Nashik to Shirdi, Mumbai, Trimbakeshwar and more." },
         ] }),
     component: () => (<>
-      <PageBanner eyebrow="Destinations" title="Journeys worth taking" intro="Pilgrimages, city trips and scenic escapes." image={media.trimbak}/>
+      <PageBanner eyebrow="Destinations" title="Journeys worth taking" intro="Pilgrimages, city trips and scenic escapes." image={media.destinationsHero}/>
       <section className="mx-auto grid max-w-7xl gap-8 px-5 py-20 md:grid-cols-2 md:px-8">
         {destinations.map((d) => (<div key={d.id}><DestinationCard d={d}/><p className="mt-4 text-muted-foreground">{d.description}</p></div>))}
       </section>

@@ -9,7 +9,7 @@ export const business = {
     address: "Dhruv Nagar, Gangapur Road, Nashik, Maharashtra 422222",
     mapsUrl: "https://maps.app.goo.gl/rZLuAmsJ5UBmtVXV6",
     // Not supplied yet — replace with the real Instagram profile URL. Leave empty to hide the link.
-    instagramUrl: "",
+    instagramUrl: "https://www.instagram.com/daksh_tours_and_travels_/",
     tagline: "Cab, car and bus rentals from Nashik",
 };
 export const telLink = `tel:${business.phoneE164}`;

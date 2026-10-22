@@ -6,6 +6,10 @@ import nashik from "@/assets/dest-nashik.jpg";
 import shirdi from "@/assets/dest-shirdi.jpg";
 import mumbai from "@/assets/dest-mumbai.jpg";
 import trimbak from "@/assets/dest-trimbak.jpg";
+import destinationsHero from "@/assets/destination hero.png";
+import fleetHero from "@/assets/fleet hero.png";
+import aboutHero from "@/assets/about hero.png";
+import bookingHero from "@/assets/booking hero.png";
 import aura from "@/assets/car-aura.jpg";
 import ertiga from "@/assets/car-ertiga.jpg";
 import innova from "@/assets/car-innova.jpg";
@@ -20,6 +24,10 @@ export const media = {
     shirdi,
     mumbai,
     trimbak,
+    destinationsHero,
+    fleetHero,
+    aboutHero,
+    bookingHero,
     aura,
     ertiga,
     innova,

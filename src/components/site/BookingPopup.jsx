@@ -32,7 +32,7 @@ export function BookingPopup() {
     if (!mounted)
         return null;
     return (<div className="fixed inset-0 z-[60] grid place-items-center p-4" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-      <div onClick={close} className={cn("absolute inset-0 bg-navy-deep/70 backdrop-blur-sm transition-opacity duration-500", open ? "opacity-100" : "opacity-0")}/>
+      <div onClick={close} className={cn("absolute inset-0 bg-[#101B2D]/70 backdrop-blur-sm transition-opacity duration-500", open ? "opacity-100" : "opacity-0")}/>
       <div className={cn("relative grid w-full max-w-3xl overflow-hidden rounded-3xl bg-card shadow-soft transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:grid-cols-2", open ? "translate-y-0 scale-100 opacity-100" : "translate-y-8 scale-95 opacity-0")}>
         <div className="relative h-44 md:h-auto">
           <img src={media.trimbak} alt="Trimbakeshwar temple beneath the Brahmagiri hills" className="absolute inset-0 h-full w-full object-cover"/>

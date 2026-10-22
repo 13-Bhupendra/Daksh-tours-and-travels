@@ -1,8 +1,7 @@
 import { media } from "./media";
-// Vehicle list — only add details that have been verified with the business.
-// NOTE: "Aura" assumed to be the Hyundai Aura — confirm before publishing.
+// Vehicle descriptions and categories supplied for the business.
 export const vehicles = [
-    { id: "aura", name: "Aura", category: "Sedan", image: media.aura, note: "A compact sedan for smooth city and highway rides." },
+    { id: "aura", name: "Hyundai Aura", category: "Sedan", image: media.aura, note: "A compact sedan for smooth city and highway rides." },
     { id: "ertiga", name: "Ertiga", category: "MPV", image: media.ertiga, note: "A family-friendly MPV for group trips." },
     { id: "innova", name: "Innova", category: "MPV", image: media.innova, note: "A spacious MPV for long-distance comfort." },
     { id: "eeco", name: "Eeco", category: "Van", image: media.eeco, note: "A practical van for everyday travel needs." },

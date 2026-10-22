@@ -7,7 +7,7 @@ import { Logo } from "./primitives";
 export function SiteFooter() {
     const year = new Date().getFullYear();
     const icon = "grid h-11 w-11 place-items-center rounded-full border border-line-dark transition-colors hover:border-gold hover:text-gold";
-    return (<footer className="bg-navy-deep text-on-dark-muted">
+    return (<footer className="dark-footer text-on-dark-muted">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:px-8 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Logo />

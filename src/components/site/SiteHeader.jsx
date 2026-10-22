@@ -26,7 +26,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-ivory/95 py-2 shadow-sm backdrop-blur-md">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-ivory/90 py-2 shadow-sm backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 md:px-8">
           <Link
             to="/"
@@ -48,7 +48,7 @@ export function SiteHeader() {
             <BookingMenu
               label="Enquiry"
               compact
-              buttonClass="inline-flex items-center gap-2 rounded-full bg-gold px-3 py-2.5 text-xs font-bold text-navy-deep transition-colors hover:bg-gold-soft sm:px-5 sm:text-sm"
+              buttonClass="inline-flex items-center gap-2 rounded-full bg-gold px-3 py-2.5 text-xs font-bold text-navy transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-soft hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:px-5 sm:text-sm"
             />
             <button
               type="button"
@@ -74,7 +74,7 @@ export function SiteHeader() {
           aria-label="Close menu"
           tabIndex={open ? 0 : -1}
           className={cn(
-            "absolute inset-0 bg-navy-deep/70 backdrop-blur-sm transition-opacity duration-500",
+            "absolute inset-0 bg-[#101B2D]/75 backdrop-blur-sm transition-opacity duration-500",
             open ? "opacity-100" : "opacity-0",
           )}
         />
@@ -84,7 +84,7 @@ export function SiteHeader() {
           aria-modal="true"
           aria-label="Site menu"
           className={cn(
-            "absolute right-0 top-0 flex h-full w-[min(100%,24rem)] flex-col overflow-y-auto bg-navy-deep px-5 py-5 text-on-dark transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 sm:py-6",
+            "site-menu absolute right-0 top-0 flex h-full w-[min(100%,24rem)] flex-col overflow-y-auto px-5 py-5 text-on-dark transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 sm:py-6",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >

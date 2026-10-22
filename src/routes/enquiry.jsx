@@ -116,7 +116,7 @@ function Enquiry() {
     </label>);
     const cls = "w-full rounded-xl border border-input bg-card px-4 py-3 text-foreground";
     return (<>
-      <PageBanner eyebrow="Booking Enquiry" title="Plan your journey" intro="Share your trip details and our team will get back to you shortly." image={media.hero}/>
+      <PageBanner eyebrow="Booking Enquiry" title="Plan your journey" intro="Share your trip details and our team will get back to you shortly." image={media.bookingHero} className="booking-page-hero"/>
       <section className="mx-auto max-w-3xl px-5 py-20">
         <form onSubmit={submit} noValidate className="grid gap-6 md:grid-cols-2">
           {field("name", "Full name", <input required minLength={2} maxLength={80} autoComplete="name" className={cls} value={d.name} onChange={set("name")} placeholder="Your name" disabled={submitting}/>)}
@@ -150,7 +150,7 @@ function Enquiry() {
             type="button"
             onClick={() => setFeedback(null)}
             aria-label="Close message"
-            className="absolute inset-0 bg-navy-deep/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#101B2D]/70 backdrop-blur-sm"
           />
           <div className="relative w-full max-w-md rounded-3xl border border-gold/20 bg-card p-7 text-center shadow-soft sm:p-9">
             <button

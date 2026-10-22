@@ -8,6 +8,8 @@ import { destinations } from "@/data/destinations";
 import { services } from "@/data/services";
 import { vehicles } from "@/data/vehicles";
 import { media } from "@/data/media";
+import { HowItWorks } from "@/components/site/HowItWorks";
+import { PickupScene } from "@/components/site/PickupScene";
 export const Route = createFileRoute("/")({
     head: () => ({ meta: [
             { title: "Daksh Tours and Travels | Cab, Car & Bus Rental in Nashik" },
@@ -19,8 +21,8 @@ export const Route = createFileRoute("/")({
 });
 function Index() {
     return (<>
-      <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-deep">
-        <video className="absolute inset-0 h-full w-full object-cover" src={media.heroVideo} autoPlay muted loop playsInline preload="auto"/>
+      <section className="dark-cinematic relative flex min-h-[100svh] items-center overflow-hidden">
+        <video className="absolute inset-0 h-full w-full object-cover" src={media.heroVideo} poster={media.hero} autoPlay muted loop playsInline preload="metadata"/>
         <div className="overlay-hero absolute inset-0"/>
         <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 md:px-8">
           <p className="eyebrow animate-rise">Nashik · Maharashtra</p>
@@ -39,7 +41,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8">
         <SectionHeading eyebrow="What we do" title="Travel made simple" intro="From a quick airport drop to a family pilgrimage, we arrange the ride."/>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.filter((s) => s.id !== "car-rental").map((s) => (<div key={s.id} className="rounded-2xl border border-border bg-card p-7">
+          {services.filter((s) => s.id !== "car-rental").map((s) => (<div key={s.id} className="service-card rounded-2xl border border-border bg-card p-7">
               <s.icon className="h-7 w-7 text-gold" aria-hidden/>
               <h3 className="mt-5 text-2xl text-navy">{s.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{s.summary}</p>
@@ -59,12 +61,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-24 md:px-8">
-        <SectionHeading eyebrow="How booking works" title="Three easy steps"/>
-        <ol className="mt-12 grid gap-8 md:grid-cols-3">
-          {["Share your trip details through the form, a call or WhatsApp.", "We reply to confirm the vehicle and timing.", "Your driver arrives and the journey begins."].map((t, i) => (<li key={i} className="border-t border-gold pt-6"><span className="font-display text-5xl text-gold">0{i + 1}</span><p className="mt-4 text-muted-foreground">{t}</p></li>))}
-        </ol>
-      </section>
+      <HowItWorks />
+      <PickupScene />
 
       <ReviewsMarquee />
       <CtaBand />

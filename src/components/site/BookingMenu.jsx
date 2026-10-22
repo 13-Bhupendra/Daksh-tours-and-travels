@@ -28,7 +28,7 @@ export function BookingMenu({ label = "Book Now", buttonClass = "btn-gold", alig
       </button>
       <div role="menu" className={cn("absolute z-50 origin-top rounded-2xl border border-border bg-popover text-popover-foreground shadow-soft transition-all duration-300", compact ? "w-[min(17rem,calc(100vw-1rem))] p-1.5" : "w-72 p-2", align === "right" ? "right-0" : "left-0", up ? "bottom-full mb-3" : "top-full mt-3", open ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-2 scale-95 opacity-0")}>
         <Link to="/enquiry" role="menuitem" className={item} onClick={() => setOpen(false)}>
-          <span className={cn("grid shrink-0 place-items-center rounded-full bg-navy text-gold", compact ? "h-9 w-9" : "h-10 w-10")}><ClipboardList className="h-4 w-4"/></span>
+          <span className={cn("grid shrink-0 place-items-center rounded-full bg-gold text-navy", compact ? "h-9 w-9" : "h-10 w-10")}><ClipboardList className="h-4 w-4"/></span>
           <span><span className="block font-semibold text-navy">Booking Form</span><span className="text-xs text-muted-foreground">Share your trip details</span></span>
         </Link>
         <a href={telLink} role="menuitem" className={item} onClick={() => setOpen(false)}>
@@ -36,7 +36,7 @@ export function BookingMenu({ label = "Book Now", buttonClass = "btn-gold", alig
           <span><span className="block font-semibold text-navy">Call Now</span><span className="text-xs text-muted-foreground">Speak with us directly</span></span>
         </a>
         <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" role="menuitem" className={item} onClick={() => setOpen(false)}>
-          <span className={cn("grid shrink-0 place-items-center rounded-full bg-whatsapp text-on-dark", compact ? "h-9 w-9" : "h-10 w-10")}><MessageCircle className="h-4 w-4"/></span>
+          <span className={cn("grid shrink-0 place-items-center rounded-full bg-whatsapp text-white", compact ? "h-9 w-9" : "h-10 w-10")}><MessageCircle className="h-4 w-4"/></span>
           <span><span className="block font-semibold text-navy">WhatsApp Enquiry</span><span className="text-xs text-muted-foreground">Chat with a prefilled message</span></span>
         </a>
       </div>

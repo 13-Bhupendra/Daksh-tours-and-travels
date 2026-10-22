@@ -1,6 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query';
 import { Outlet, Link, createRootRouteWithContext, useRouter, HeadContent } from '@tanstack/react-router';
 import { SiteHeader } from '@/components/site/SiteHeader';
+import { SiteFooter } from '@/components/site/SiteFooter';
 
 function NotFoundComponent() {
   return (
@@ -55,6 +56,7 @@ function RootComponent() {
       <HeadContent />
       <SiteHeader />
       <QueryClientProvider client={queryClient}><Outlet /></QueryClientProvider>
+      <SiteFooter />
     </>
   );
 }
