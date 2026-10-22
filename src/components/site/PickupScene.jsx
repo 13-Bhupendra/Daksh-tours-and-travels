@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function PickupScene() {
   const hostRef = useRef(null);
   const playedRef = useRef(false);
+  const [loadingProgress, setLoadingProgress] = useState(4);
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
@@ -31,6 +32,7 @@ export function PickupScene() {
         import("three/addons/loaders/GLTFLoader.js"),
       ]);
       if (disposed) return;
+      setLoadingProgress(8);
       scene = new THREE.Scene();
       scene.background = new THREE.Color("#101b2d");
       scene.fog = new THREE.Fog("#101b2d", 24, 54);
@@ -92,13 +94,18 @@ export function PickupScene() {
         lamp.position.set(x + (x < 0 ? 0.75 : -0.75), 4.28, -4.7); scene.add(lamp);
         const pool = new THREE.PointLight("#d6ad67", 2.5, 8); pool.position.copy(lamp.position); scene.add(pool);
       }
-      const loader = new GLTFLoader();
+      const manager = new THREE.LoadingManager();
+      manager.onProgress = (_url, loaded, total) => {
+        if (!disposed) setLoadingProgress(Math.min(96, 8 + Math.round((loaded / Math.max(total, 1)) * 84)));
+      };
+      const loader = new GLTFLoader(manager);
       const [carAsset, passengerAsset, secondPassengerAsset] = await Promise.all([
         loader.loadAsync("/models/graphite-four-door-sedan.glb"),
         loader.loadAsync("/models/passenger/rp_posed_00178_29.glb"),
         loader.loadAsync("/models/passenger/harper-walk.glb"),
       ]);
       if (disposed) return;
+      setLoadingProgress(98);
       const car = new THREE.Group();
       const model = carAsset.scene;
       model.traverse((o) => {
@@ -187,7 +194,6 @@ export function PickupScene() {
         renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = w < 640 ? 42 : 34; camera.updateProjectionMatrix();
       };
       resizeObserver = new ResizeObserver(resize); resizeObserver.observe(host); resize();
-      host.classList.add("is-ready");
       const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const startAt = performance.now(), duration = 9400;
       const offscreenX = Math.max(13, (host.clientWidth / Math.max(host.clientHeight, 1)) * 5.8 + 3);
@@ -225,6 +231,10 @@ export function PickupScene() {
           });
         });
         renderer.render(scene, camera);
+        if (!host.classList.contains("is-ready")) {
+          host.classList.add("is-ready");
+          setLoadingProgress(100);
+        }
         if (!reduced && inView) frame = requestAnimationFrame(draw);
       };
       resumeLoop = () => {
@@ -257,7 +267,16 @@ export function PickupScene() {
           <p className="max-w-sm text-sm leading-relaxed text-on-dark-muted">A glimpse of the care behind every pickup, from the moment your ride arrives to the moment your journey begins.</p>
         </div>
         <div ref={hostRef} className="pickup-scene relative h-[260px] overflow-hidden rounded-3xl border border-line-dark bg-navy-deep sm:h-[340px] md:h-[440px]" role="img" aria-label="A graphite sedan arrives beside two waiting passengers, who board before it drives away">
-          <div className="pickup-loading skeleton absolute inset-0" />
+          <div className="pickup-loading absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center" aria-live="polite" aria-label="Preparing the passenger pickup animation">
+            <div className="journey-loader-mark" aria-hidden="true"><span /><span /><span /></div>
+            <div>
+              <p className="font-display text-xl tracking-wide text-white sm:text-2xl">Preparing Your Journey…</p>
+              <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-white/60">Setting the scene</p>
+            </div>
+            <div className="journey-loader-track" role="progressbar" aria-label="3D scene loading progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={loadingProgress}>
+              <span style={{ width: `${loadingProgress}%` }} />
+            </div>
+          </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-between bg-gradient-to-t from-[#101B2D]/95 via-[#101B2D]/65 to-transparent px-5 pb-4 pt-12 text-[0.68rem] font-extrabold uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)] sm:px-8 sm:text-xs"><span>Pickup requested</span><span>On the way</span><span>Journey begins</span></div>
         </div>
       </div>
